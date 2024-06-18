@@ -1,0 +1,20 @@
+M1 = Create(M1,[mark 0],[Tran [0,1,1][1,2,0]])  (2,2)
+
+M2 = Create(M2,[mark 0],[Tran [0,3,1][1,4,0]])  (2,2)
+
+E = Create(E,[mark 0],[Tran [0,2,1][1,3,0]])  (2,2)
+
+PLANT = Sync(M1,M2)  (4,8)
+
+ALL = Allevents(PLANT)  (1,4)
+
+SPEC = Sync(E,ALL)  (2,6)
+
+SUP = Supcon(PLANT,SPEC)  (6,8)
+
+SUPDAT = Condat(PLANT,SUP)  Controllable
+
+SIMSUP = Supreduce(PLANT,SUP,SUPDAT)  (2,5)
+
+SIMSUP = Condat(PLANT,SIMSUP)  Controllable
+

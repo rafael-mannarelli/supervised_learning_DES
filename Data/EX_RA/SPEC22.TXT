@@ -1,0 +1,15 @@
+SPEC22    # states: 3    state set: 0 ... 2    initial state: 0
+
+marker states:       
+
+      0       1       2 
+
+vocal states: none
+
+
+# transitions: 4
+
+transitions: 
+
+[    0, 21,    1]  [    0, 31,    2]  [    1, 22,    0]  [    2, 32,    0]  
+

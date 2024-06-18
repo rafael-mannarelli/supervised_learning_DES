@@ -1,0 +1,14 @@
+A2    # states: 3    state set: 0 ... 2    initial state: 0
+
+marker states:       
+
+      0 
+
+vocal states: none
+
+
+# transitions: 3
+
+transitions: 
+
+[    0, 20,    1]  [    1, 21,    2]  [    2, 22,    0]  

@@ -1,0 +1,16 @@
+SPEC12    # states: 5    state set: 0 ... 4    initial state: 0
+
+marker states:       
+
+      0 
+
+vocal states: none
+
+
+# transitions: 8
+
+transitions: 
+
+[    0, 20,    1]  [    0, 30,    2]  [    1, 21,    0]  [    1, 30,    3]  
+[    2, 20,    4]  [    2, 31,    0]  [    3, 21,    2]  [    4, 31,    1]  
+

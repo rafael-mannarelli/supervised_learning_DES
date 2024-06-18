@@ -1,0 +1,564 @@
+AGV1 = Create(AGV1,[mark 0],[Tran [0,11,1][1,10,2][2,13,3][3,12,0]])  (4,4
+       )
+
+AGV2 = Create(AGV2,[mark 0],[Tran [0,21,1][1,18,2][2,20,3][3,22,4][4,23,5]
+       [5,24,6][6,26,7][7,28,0]])  (8,8)
+
+AGV3 = Create(AGV3,[mark 0],[Tran [0,33,1][1,34,2][2,31,3][3,32,0]])  (4,4
+       )
+
+AGV4 = Create(AGV4,[mark 0],[Tran [0,41,1][1,40,2][2,42,3][3,43,4][4,44,5]
+       [5,46,0]])  (6,6)
+
+AGV5 = Create(AGV5,[mark 0],[Tran [0,51,1][1,50,2][2,53,3][3,52,0]])  (4,4
+       )
+
+AGV = Sync(AGV1,AGV2)  (32,64)
+
+AGV = Sync(AGV,AGV3)  (128,384)
+
+AGV = Sync(AGV,AGV4)  (768,3072)
+
+AGV = Sync(AGV,AGV5)  (3072,15360)
+
+ALL = Allevents(AGV)  (1,26)
+
+Z1SPEC = Create(Z1SPEC,[mark 0,1,2],[Tran [0,11,1][0,13,1][0,20,2][0,23,2]
+         [1,10,0][1,12,0][2,22,0][2,24,0]])  (3,8)
+
+Z1SPEC = Sync(Z1SPEC,ALL)  (3,62)
+
+Z2SPEC = Create(Z2SPEC,[mark 0,1,2],[Tran [0,18,1][0,24,1][0,31,2][0,33,2]
+         [1,20,0][1,26,0][2,32,0][2,34,0]])  (3,8)
+
+Z2SPEC = Sync(Z2SPEC,ALL)  (3,62)
+
+Z3SPEC = Create(Z3SPEC,[mark 0,1,2],[Tran [0,21,1][0,26,1][0,41,2][0,44,2]
+         [1,18,0][1,28,0][2,40,0][2,46,0]])  (3,8)
+
+Z3SPEC = Sync(Z3SPEC,ALL)  (3,62)
+
+Z4SPEC = Create(Z4SPEC,[mark 0,1,2],[Tran [0,40,1][0,43,1][0,51,2][0,53,2]
+         [1,42,0][1,44,0][2,50,0][2,52,0]])  (3,8)
+
+Z4SPEC = Sync(Z4SPEC,ALL)  (3,62)
+
+ZSPEC = Meet(Z1SPEC,Z2SPEC)  (9,146)
+
+ZSPEC = Meet(ZSPEC,Z3SPEC)  (27,318)
+
+ZSPEC = Meet(ZSPEC,Z4SPEC)  (81,594)
+
+ZSUP = Supcon(AGV,ZSPEC)  (1112,3776)
+
+WS1SPEC = Create(WS1SPEC,[mark 0,1,2,3],[Tran [0,32,1][0,46,2][1,46,3][2,3
+          2,3][3,50,0]])  (4,5)
+
+WS1SPEC = Sync(WS1SPEC,ALL)  (4,97)
+
+WS2SPEC = Create(WS2SPEC,[mark 0,1],[Tran [0,12,1][1,34,0]])  (2,2)
+
+WS2SPEC = Sync(WS2SPEC,ALL)  (2,50)
+
+WS3SPEC = Create(WS3SPEC,[mark 0,1],[Tran [0,28,1][1,42,0]])  (2,2)
+
+WS3SPEC = Sync(WS3SPEC,ALL)  (2,50)
+
+WSSPEC = Meet(WS1SPEC,WS2SPEC)  (8,186)
+
+WSSPEC = Meet(WSSPEC,WS3SPEC)  (16,356)
+
+WSSUP = Supcon(AGV,WSSPEC)  (12666,47730)
+
+IPSSPEC = Create(IPSSPEC,[mark 0,1,2],[Tran [0,10,1][0,22,2][1,13,0][2,23,
+          0]])  (3,4)
+
+IPSSPEC = Sync(IPSSPEC,ALL)  (3,70)
+
+IPSSPEC = Supcon(AGV,IPSSPEC)  (2304,10944)
+
+IPSSPEC_CA = Condat(AGV,IPSSPEC)  Controllable
+
+ZWSSPEC = Meet(ZSPEC,WSSPEC)  (1296,7884)
+
+ZWSSUP = Supcon(AGV,ZWSSPEC)  (6910,18226)
+
+ZWSISSPEC = Meet(ZWSSPEC,IPSSPEC)  (17408,49792)
+
+ZWSISSUP = Supcon(AGV,ZWSISSPEC)  (4406,11338)
+
+ZWSISSUP_CA = Supcon(AGV,ZWSISSUP)  (4406,11338)
+
+AGV1 = Create(AGV1,[mark 0],[Tran [0,11,1][1,10,2][2,13,3][3,12,0]])  (4,4
+       )
+
+AGV2 = Create(AGV2,[mark 0],[Tran [0,21,1][1,18,2][2,20,3][3,22,4][4,23,5]
+       [5,24,6][6,26,7][7,28,0]])  (8,8)
+
+AGV3 = Create(AGV3,[mark 0],[Tran [0,33,1][1,34,2][2,31,3][3,32,0]])  (4,4
+       )
+
+AGV4 = Create(AGV4,[mark 0],[Tran [0,41,1][1,40,2][2,42,3][3,43,4][4,44,5]
+       [5,46,0]])  (6,6)
+
+AGV5 = Create(AGV5,[mark 0],[Tran [0,51,1][1,50,2][2,53,3][3,52,0]])  (4,4
+       )
+
+AGV = Sync(AGV1,AGV2)  (32,64)
+
+AGV = Sync(AGV,AGV3)  (128,384)
+
+AGV = Sync(AGV,AGV4)  (768,3072)
+
+AGV = Sync(AGV,AGV5)  (3072,15360)
+
+ALL = Allevents(AGV)  (1,26)
+
+Z1SPEC = Create(Z1SPEC,[mark 0,1,2],[Tran [0,11,1][0,13,1][0,20,2][0,23,2]
+         [1,10,0][1,12,0][2,22,0][2,24,0]])  (3,8)
+
+Z1SPEC = Sync(Z1SPEC,ALL)  (3,62)
+
+Z2SPEC = Create(Z2SPEC,[mark 0,1,2],[Tran [0,18,1][0,24,1][0,31,2][0,33,2]
+         [1,20,0][1,26,0][2,32,0][2,34,0]])  (3,8)
+
+Z2SPEC = Sync(Z2SPEC,ALL)  (3,62)
+
+Z3SPEC = Create(Z3SPEC,[mark 0,1,2],[Tran [0,21,1][0,26,1][0,41,2][0,44,2]
+         [1,18,0][1,28,0][2,40,0][2,46,0]])  (3,8)
+
+Z3SPEC = Sync(Z3SPEC,ALL)  (3,62)
+
+Z4SPEC = Create(Z4SPEC,[mark 0,1,2],[Tran [0,40,1][0,43,1][0,51,2][0,53,2]
+         [1,42,0][1,44,0][2,50,0][2,52,0]])  (3,8)
+
+Z4SPEC = Sync(Z4SPEC,ALL)  (3,62)
+
+ZSPEC = Meet(Z1SPEC,Z2SPEC)  (9,146)
+
+ZSPEC = Meet(ZSPEC,Z3SPEC)  (27,318)
+
+ZSPEC = Meet(ZSPEC,Z4SPEC)  (81,594)
+
+ZSUP = Supcon(AGV,ZSPEC)  (1112,3776)
+
+WS1SPEC = Create(WS1SPEC,[mark 0,1,2,3],[Tran [0,32,1][0,46,2][1,46,3][2,3
+          2,3][3,50,0]])  (4,5)
+
+WS1SPEC = Sync(WS1SPEC,ALL)  (4,97)
+
+WS2SPEC = Create(WS2SPEC,[mark 0,1],[Tran [0,12,1][1,34,0]])  (2,2)
+
+WS2SPEC = Sync(WS2SPEC,ALL)  (2,50)
+
+WS3SPEC = Create(WS3SPEC,[mark 0,1],[Tran [0,28,1][1,42,0]])  (2,2)
+
+WS3SPEC = Sync(WS3SPEC,ALL)  (2,50)
+
+WSSPEC = Meet(WS1SPEC,WS2SPEC)  (8,186)
+
+WSSPEC = Meet(WSSPEC,WS3SPEC)  (16,356)
+
+WSSUP = Supcon(AGV,WSSPEC)  (12666,47730)
+
+IPSSPEC = Create(IPSSPEC,[mark 0,1,2],[Tran [0,10,1][0,22,2][1,13,0][2,23,
+          0]])  (3,4)
+
+IPSSPEC = Sync(IPSSPEC,ALL)  (3,70)
+
+IPSSPEC = Supcon(AGV,IPSSPEC)  (2304,10944)
+
+IPSSPEC_CA = Condat(AGV,IPSSPEC)  Controllable
+
+ZWSSPEC = Meet(ZSPEC,WSSPEC)  (1296,7884)
+
+ZWSSUP = Supcon(AGV,ZWSSPEC)  (6910,18226)
+
+ZWSISSPEC = Meet(ZWSSPEC,IPSSPEC)  (17408,49792)
+
+ZWSISSUP = Supcon(AGV,ZWSISSPEC)  (4406,11338)
+
+ZWSISSUP_CA = Condat(AGV,ZWSISSUP)  Controllable
+
+AGV1 = Create(AGV1,[mark 0],[Tran [0,11,1][1,10,2][2,13,3][3,12,0]])  (4,4
+       )
+
+AGV2 = Create(AGV2,[mark 0],[Tran [0,21,1][1,18,2][2,20,3][3,22,4][4,23,5]
+       [5,24,6][6,26,7][7,28,0]])  (8,8)
+
+AGV3 = Create(AGV3,[mark 0],[Tran [0,33,1][1,34,2][2,31,3][3,32,0]])  (4,4
+       )
+
+AGV4 = Create(AGV4,[mark 0],[Tran [0,41,1][1,40,2][2,42,3][3,43,4][4,44,5]
+       [5,46,0]])  (6,6)
+
+AGV5 = Create(AGV5,[mark 0],[Tran [0,51,1][1,50,2][2,53,3][3,52,0]])  (4,4
+       )
+
+AGV = Sync(AGV1,AGV2)  (32,64)
+
+AGV = Sync(AGV,AGV3)  (128,384)
+
+AGV = Sync(AGV,AGV4)  (768,3072)
+
+AGV = Sync(AGV,AGV5)  (3072,15360)
+
+ALL = Allevents(AGV)  (1,26)
+
+Z1SPEC = Create(Z1SPEC,[mark 0,1,2],[Tran [0,11,1][0,13,1][0,20,2][0,23,2]
+         [1,10,0][1,12,0][2,22,0][2,24,0]])  (3,8)
+
+Z1SPEC = Sync(Z1SPEC,ALL)  (3,62)
+
+Z2SPEC = Create(Z2SPEC,[mark 0,1,2],[Tran [0,18,1][0,24,1][0,31,2][0,33,2]
+         [1,20,0][1,26,0][2,32,0][2,34,0]])  (3,8)
+
+Z2SPEC = Sync(Z2SPEC,ALL)  (3,62)
+
+Z3SPEC = Create(Z3SPEC,[mark 0,1,2],[Tran [0,21,1][0,26,1][0,41,2][0,44,2]
+         [1,18,0][1,28,0][2,40,0][2,46,0]])  (3,8)
+
+Z3SPEC = Sync(Z3SPEC,ALL)  (3,62)
+
+Z4SPEC = Create(Z4SPEC,[mark 0,1,2],[Tran [0,40,1][0,43,1][0,51,2][0,53,2]
+         [1,42,0][1,44,0][2,50,0][2,52,0]])  (3,8)
+
+Z4SPEC = Sync(Z4SPEC,ALL)  (3,62)
+
+ZSPEC = Meet(Z1SPEC,Z2SPEC)  (9,146)
+
+ZSPEC = Meet(ZSPEC,Z3SPEC)  (27,318)
+
+ZSPEC = Meet(ZSPEC,Z4SPEC)  (81,594)
+
+ZSUP = Supcon(AGV,ZSPEC)  (1112,3776)
+
+WS1SPEC = Create(WS1SPEC,[mark 0,1,2,3],[Tran [0,32,1][0,46,2][1,46,3][2,3
+          2,3][3,50,0]])  (4,5)
+
+WS1SPEC = Sync(WS1SPEC,ALL)  (4,97)
+
+WS2SPEC = Create(WS2SPEC,[mark 0,1],[Tran [0,12,1][1,34,0]])  (2,2)
+
+WS2SPEC = Sync(WS2SPEC,ALL)  (2,50)
+
+WS3SPEC = Create(WS3SPEC,[mark 0,1],[Tran [0,28,1][1,42,0]])  (2,2)
+
+WS3SPEC = Sync(WS3SPEC,ALL)  (2,50)
+
+WSSPEC = Meet(WS1SPEC,WS2SPEC)  (8,186)
+
+WSSPEC = Meet(WSSPEC,WS3SPEC)  (16,356)
+
+WSSUP = Supcon(AGV,WSSPEC)  (12666,47730)
+
+IPSSPEC = Create(IPSSPEC,[mark 0,1,2],[Tran [0,10,1][0,22,2][1,13,0][2,23,
+          0]])  (3,4)
+
+IPSSPEC = Sync(IPSSPEC,ALL)  (3,70)
+
+IPSSPEC = Supcon(AGV,IPSSPEC)  (2304,10944)
+
+IPSSPEC_CA = Condat(AGV,IPSSPEC)  Controllable
+
+ZWSSPEC = Meet(ZSPEC,WSSPEC)  (1296,7884)
+
+ZWSSUP = Supcon(AGV,ZWSSPEC)  (6910,18226)
+
+ZWSISSPEC = Meet(ZWSSPEC,IPSSPEC)  (17408,49792)
+
+ZWSISSUP = Supcon(AGV,ZWSISSPEC)  (4406,11338)
+
+ZWSISSUP_CA = Condat(AGV,ZWSISSUP)  Controllable
+
+AGV1 = Create(AGV1,[mark 0],[Tran [0,11,1][1,10,2][2,13,3][3,12,0]])  (4,4
+       )
+
+AGV2 = Create(AGV2,[mark 0],[Tran [0,21,1][1,18,2][2,20,3][3,22,4][4,23,5]
+       [5,24,6][6,26,7][7,28,0]])  (8,8)
+
+AGV3 = Create(AGV3,[mark 0],[Tran [0,33,1][1,34,2][2,31,3][3,32,0]])  (4,4
+       )
+
+AGV4 = Create(AGV4,[mark 0],[Tran [0,41,1][1,40,2][2,42,3][3,43,4][4,44,5]
+       [5,46,0]])  (6,6)
+
+AGV5 = Create(AGV5,[mark 0],[Tran [0,51,1][1,50,2][2,53,3][3,52,0]])  (4,4
+       )
+
+AGV = Sync(AGV1,AGV2)  (32,64)
+
+AGV = Sync(AGV,AGV3)  (128,384)
+
+AGV = Sync(AGV,AGV4)  (768,3072)
+
+AGV = Sync(AGV,AGV5)  (3072,15360)
+
+ALL = Allevents(AGV)  (1,26)
+
+Z1SPEC = Create(Z1SPEC,[mark 0,1,2],[Tran [0,11,1][0,13,1][0,20,2][0,23,2]
+         [1,10,0][1,12,0][2,22,0][2,24,0]])  (3,8)
+
+Z1SPEC = Sync(Z1SPEC,ALL)  (3,62)
+
+Z2SPEC = Create(Z2SPEC,[mark 0,1,2],[Tran [0,18,1][0,24,1][0,31,2][0,33,2]
+         [1,20,0][1,26,0][2,32,0][2,34,0]])  (3,8)
+
+Z2SPEC = Sync(Z2SPEC,ALL)  (3,62)
+
+Z3SPEC = Create(Z3SPEC,[mark 0,1,2],[Tran [0,21,1][0,26,1][0,41,2][0,44,2]
+         [1,18,0][1,28,0][2,40,0][2,46,0]])  (3,8)
+
+Z3SPEC = Sync(Z3SPEC,ALL)  (3,62)
+
+Z4SPEC = Create(Z4SPEC,[mark 0,1,2],[Tran [0,40,1][0,43,1][0,51,2][0,53,2]
+         [1,42,0][1,44,0][2,50,0][2,52,0]])  (3,8)
+
+Z4SPEC = Sync(Z4SPEC,ALL)  (3,62)
+
+ZSPEC = Meet(Z1SPEC,Z2SPEC)  (9,146)
+
+ZSPEC = Meet(ZSPEC,Z3SPEC)  (27,318)
+
+ZSPEC = Meet(ZSPEC,Z4SPEC)  (81,594)
+
+ZSUP = Supcon(AGV,ZSPEC)  (1112,3776)
+
+WS1SPEC = Create(WS1SPEC,[mark 0,1,2,3],[Tran [0,32,1][0,46,2][1,46,3][2,3
+          2,3][3,50,0]])  (4,5)
+
+WS1SPEC = Sync(WS1SPEC,ALL)  (4,97)
+
+WS2SPEC = Create(WS2SPEC,[mark 0,1],[Tran [0,12,1][1,34,0]])  (2,2)
+
+WS2SPEC = Sync(WS2SPEC,ALL)  (2,50)
+
+WS3SPEC = Create(WS3SPEC,[mark 0,1],[Tran [0,28,1][1,42,0]])  (2,2)
+
+WS3SPEC = Sync(WS3SPEC,ALL)  (2,50)
+
+WSSPEC = Meet(WS1SPEC,WS2SPEC)  (8,186)
+
+WSSPEC = Meet(WSSPEC,WS3SPEC)  (16,356)
+
+WSSUP = Supcon(AGV,WSSPEC)  (12666,47730)
+
+IPSSPEC = Create(IPSSPEC,[mark 0,1,2],[Tran [0,10,1][0,22,2][1,13,0][2,23,
+          0]])  (3,4)
+
+IPSSPEC = Sync(IPSSPEC,ALL)  (3,70)
+
+IPSSPEC = Supcon(AGV,IPSSPEC)  (2304,10944)
+
+IPSSPEC_CA = Condat(AGV,IPSSPEC)  Controllable
+
+ZWSSPEC = Meet(ZSPEC,WSSPEC)  (1296,7884)
+
+ZWSSUP = Supcon(AGV,ZWSSPEC)  (6910,18226)
+
+ZWSISSPEC = Meet(ZWSSPEC,IPSSPEC)  (17408,49792)
+
+ZWSISSUP = Supcon(AGV,ZWSISSPEC)  (4406,11338)
+
+ZWSISSUP_CA = Condat(AGV,ZWSISSUP)  Controllable
+
+AGV1 = Create(AGV1,[mark 0],[Tran [0,11,1][1,10,2][2,13,3][3,12,0]])  (4,4
+       )
+
+AGV2 = Create(AGV2,[mark 0],[Tran [0,21,1][1,18,2][2,20,3][3,22,4][4,23,5]
+       [5,24,6][6,26,7][7,28,0]])  (8,8)
+
+AGV3 = Create(AGV3,[mark 0],[Tran [0,33,1][1,34,2][2,31,3][3,32,0]])  (4,4
+       )
+
+AGV4 = Create(AGV4,[mark 0],[Tran [0,41,1][1,40,2][2,42,3][3,43,4][4,44,5]
+       [5,46,0]])  (6,6)
+
+AGV5 = Create(AGV5,[mark 0],[Tran [0,51,1][1,50,2][2,53,3][3,52,0]])  (4,4
+       )
+
+AGV = Sync(AGV1,AGV2)  (32,64)
+
+AGV = Sync(AGV,AGV3)  (128,384)
+
+AGV = Sync(AGV,AGV4)  (768,3072)
+
+AGV = Sync(AGV,AGV5)  (3072,15360)
+
+ALL = Allevents(AGV)  (1,26)
+
+Z1SPEC = Create(Z1SPEC,[mark 0,1,2],[Tran [0,11,1][0,13,1][0,20,2][0,23,2]
+         [1,10,0][1,12,0][2,22,0][2,24,0]])  (3,8)
+
+Z1SPEC = Sync(Z1SPEC,ALL)  (3,62)
+
+Z2SPEC = Create(Z2SPEC,[mark 0,1,2],[Tran [0,18,1][0,24,1][0,31,2][0,33,2]
+         [1,20,0][1,26,0][2,32,0][2,34,0]])  (3,8)
+
+Z2SPEC = Sync(Z2SPEC,ALL)  (3,62)
+
+Z3SPEC = Create(Z3SPEC,[mark 0,1,2],[Tran [0,21,1][0,26,1][0,41,2][0,44,2]
+         [1,18,0][1,28,0][2,40,0][2,46,0]])  (3,8)
+
+Z3SPEC = Sync(Z3SPEC,ALL)  (3,62)
+
+Z4SPEC = Create(Z4SPEC,[mark 0,1,2],[Tran [0,40,1][0,43,1][0,51,2][0,53,2]
+         [1,42,0][1,44,0][2,50,0][2,52,0]])  (3,8)
+
+Z4SPEC = Sync(Z4SPEC,ALL)  (3,62)
+
+ZSPEC = Meet(Z1SPEC,Z2SPEC)  (9,146)
+
+ZSPEC = Meet(ZSPEC,Z3SPEC)  (27,318)
+
+ZSPEC = Meet(ZSPEC,Z4SPEC)  (81,594)
+
+ZSUP = Supcon(AGV,ZSPEC)  (1112,3776)
+
+WS1SPEC = Create(WS1SPEC,[mark 0,1,2,3],[Tran [0,32,1][0,46,2][1,46,3][2,3
+          2,3][3,50,0]])  (4,5)
+
+WS1SPEC = Sync(WS1SPEC,ALL)  (4,97)
+
+WS2SPEC = Create(WS2SPEC,[mark 0,1],[Tran [0,12,1][1,34,0]])  (2,2)
+
+WS2SPEC = Sync(WS2SPEC,ALL)  (2,50)
+
+WS3SPEC = Create(WS3SPEC,[mark 0,1],[Tran [0,28,1][1,42,0]])  (2,2)
+
+WS3SPEC = Sync(WS3SPEC,ALL)  (2,50)
+
+WSSPEC = Meet(WS1SPEC,WS2SPEC)  (8,186)
+
+WSSPEC = Meet(WSSPEC,WS3SPEC)  (16,356)
+
+WSSUP = Supcon(AGV,WSSPEC)  (12666,47730)
+
+IPSSPEC = Create(IPSSPEC,[mark 0,1,2],[Tran [0,10,1][0,22,2][1,13,0][2,23,
+          0]])  (3,4)
+
+IPSSPEC = Sync(IPSSPEC,ALL)  (3,70)
+
+IPSSPEC = Supcon(AGV,IPSSPEC)  (2304,10944)
+
+IPSSPEC_CA = Condat(AGV,IPSSPEC)  Controllable
+
+ZWSSPEC = Meet(ZSPEC,WSSPEC)  (1296,7884)
+
+ZWSSUP = Supcon(AGV,ZWSSPEC)  (6910,18226)
+
+ZWSISSPEC = Meet(ZWSSPEC,IPSSPEC)  (17408,49792)
+
+ZWSISSUP = Supcon(AGV,ZWSISSPEC)  (4406,11338)
+
+ZWSISSUP_CA = Condat(AGV,ZWSISSUP)  Controllable
+
+ZWSISSIMSUP = Supreduce(AGV,ZWSISSUP_CA,ZWSISSUP_CA)  (1258,10322)
+
+TEST = Meet(AGV,ZWSISSIMSUP)  (2357250,5434599)
+
+false = Isomorph(ZWSISSUP,TEST)
+
+false = Isomorph(ZWSISSUP,TEST)
+
+false = Isomorph(ZWSISSUP,TEST)
+
+false = Isomorph(ZWSISSUP_CA,TEST)
+
+AGV1 = Create(AGV1,[mark 0],[Tran [0,11,1][1,10,2][2,13,3][3,12,0]])  (4,4
+       )
+
+AGV2 = Create(AGV2,[mark 0],[Tran [0,21,1][1,18,2][2,20,3][3,22,4][4,23,5]
+       [5,24,6][6,26,7][7,28,0]])  (8,8)
+
+AGV3 = Create(AGV3,[mark 0],[Tran [0,33,1][1,34,2][2,31,3][3,32,0]])  (4,4
+       )
+
+AGV4 = Create(AGV4,[mark 0],[Tran [0,41,1][1,40,2][2,42,3][3,43,4][4,44,5]
+       [5,46,0]])  (6,6)
+
+AGV5 = Create(AGV5,[mark 0],[Tran [0,51,1][1,50,2][2,53,3][3,52,0]])  (4,4
+       )
+
+AGV = Sync(AGV1,AGV2)  (32,64)
+
+AGV = Sync(AGV,AGV3)  (128,384)
+
+AGV = Sync(AGV,AGV4)  (768,3072)
+
+AGV = Sync(AGV,AGV5)  (3072,15360)
+
+ALL = Allevents(AGV)  (1,26)
+
+Z1SPEC = Create(Z1SPEC,[mark 0,1,2],[Tran [0,11,1][0,13,1][0,20,2][0,23,2]
+         [1,10,0][1,12,0][2,22,0][2,24,0]])  (3,8)
+
+Z1SPEC = Sync(Z1SPEC,ALL)  (3,62)
+
+Z2SPEC = Create(Z2SPEC,[mark 0,1,2],[Tran [0,18,1][0,24,1][0,31,2][0,33,2]
+         [1,20,0][1,26,0][2,32,0][2,34,0]])  (3,8)
+
+Z2SPEC = Sync(Z2SPEC,ALL)  (3,62)
+
+Z3SPEC = Create(Z3SPEC,[mark 0,1,2],[Tran [0,21,1][0,26,1][0,41,2][0,44,2]
+         [1,18,0][1,28,0][2,40,0][2,46,0]])  (3,8)
+
+Z3SPEC = Sync(Z3SPEC,ALL)  (3,62)
+
+Z4SPEC = Create(Z4SPEC,[mark 0,1,2],[Tran [0,40,1][0,43,1][0,51,2][0,53,2]
+         [1,42,0][1,44,0][2,50,0][2,52,0]])  (3,8)
+
+Z4SPEC = Sync(Z4SPEC,ALL)  (3,62)
+
+ZSPEC = Meet(Z1SPEC,Z2SPEC)  (9,146)
+
+ZSPEC = Meet(ZSPEC,Z3SPEC)  (27,318)
+
+ZSPEC = Meet(ZSPEC,Z4SPEC)  (81,594)
+
+ZSUP = Supcon(AGV,ZSPEC)  (1112,3776)
+
+WS1SPEC = Create(WS1SPEC,[mark 0,1,2,3],[Tran [0,32,1][0,46,2][1,46,3][2,3
+          2,3][3,50,0]])  (4,5)
+
+WS1SPEC = Sync(WS1SPEC,ALL)  (4,97)
+
+WS2SPEC = Create(WS2SPEC,[mark 0,1],[Tran [0,12,1][1,34,0]])  (2,2)
+
+WS2SPEC = Sync(WS2SPEC,ALL)  (2,50)
+
+WS3SPEC = Create(WS3SPEC,[mark 0,1],[Tran [0,28,1][1,42,0]])  (2,2)
+
+WS3SPEC = Sync(WS3SPEC,ALL)  (2,50)
+
+WSSPEC = Meet(WS1SPEC,WS2SPEC)  (8,186)
+
+WSSPEC = Meet(WSSPEC,WS3SPEC)  (16,356)
+
+WSSUP = Supcon(AGV,WSSPEC)  (12666,47730)
+
+IPSSPEC = Create(IPSSPEC,[mark 0,1,2],[Tran [0,10,1][0,22,2][1,13,0][2,23,
+          0]])  (3,4)
+
+IPSSPEC = Sync(IPSSPEC,ALL)  (3,70)
+
+IPSSPEC = Supcon(AGV,IPSSPEC)  (2304,10944)
+
+IPSSPEC_CA = Condat(AGV,IPSSPEC)  Controllable
+
+ZWSSPEC = Meet(ZSPEC,WSSPEC)  (1296,7884)
+
+ZWSSUP = Supcon(AGV,ZWSSPEC)  (6910,18226)
+
+ZWSISSPEC = Meet(ZWSSPEC,IPSSPEC)  (17408,49792)
+
+ZWSISSUP = Supcon(AGV,ZWSISSPEC)  (4406,11338)
+
+ZWSISSUP_CA = Condat(AGV,ZWSISSUP)  Controllable
+
+ZWSISSIMSUP = Supreduce(AGV,ZWSISSUP,ZWSISSUP_CA)  (494,3544)
+
+TEST = Meet(AGV,ZWSISSIMSUP)  (4406,11338)
+
+true = Isomorph(ZWSISSUP_CA,TEST)
+
